@@ -98,23 +98,23 @@ class AppModel(
         //TODO: Clear cache
     }
 
-    fun loadAccountDataFromCache() {
-        accountData = AccountData("*", AccountInfo(), RealmList())
-        db.executeTransaction {
-            val cachedAccountData = it.where(AccountData::class.java).findFirst()
-            if (cachedAccountData != null)
-                accountData = cachedAccountData
-        }
-    }
-
-    fun saveAccountDataToCache(){
-        db.beginTransaction()
-        db.insert(accountData)
-        db.commitTransaction()
-    }
-
-    fun clearCache(){
-        db.deleteAll()
-    }
+//    fun loadAccountDataFromCache() {
+//        accountData = AccountData("*", AccountInfo(), RealmList())
+//        db.executeTransaction {
+//            val cachedAccountData = it.where(AccountData::class.java).findFirst()
+//            if (cachedAccountData != null)
+//                accountData = cachedAccountData
+//        }
+//    }
+//
+//    fun saveAccountDataToCache(){
+//        db.beginTransaction()
+//        db.insert(accountData)
+//        db.commitTransaction()
+//    }
+//
+//    fun clearCache(){
+//        db.deleteAll()
+//    }
 
 }

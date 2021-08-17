@@ -85,8 +85,6 @@ class DataFragment : AccountViewModelFragment() {
         {
             model.accountData = accountData
 
-            model.saveAccountDataToCache()
-
             updateView()
         }
     }
@@ -122,12 +120,7 @@ class DataFragment : AccountViewModelFragment() {
                 .subscribe(this::getCcPromoData, this::getCCPromoError)
         }
         else{
-            val cacheData = loadCCPromoFromCache()
-            if (cacheData != null) {
-                ccPromosAdapter.setData(cacheData)
-            }
-            else
-                ccPromo.visibility = View.GONE
+            ccPromo.visibility = View.GONE
         }
     }
 
@@ -143,22 +136,18 @@ class DataFragment : AccountViewModelFragment() {
         }
         else{
             Toasty.warning(context!!, getString(R.string.failed_internet_connection), Toasty.LENGTH_LONG).show()
-            model.loadAccountDataFromCache()
-            updateView()
-            updateDataEnd()
+//            model.loadAccountDataFromCache()
+//            updateView()
+//            updateDataEnd()
         }
     }
 
     private fun onErrorUpdateData(throwable: Throwable?){
         updateDataEnd()
-        if(context!!.isOnline().not()){
-            Toasty.warning(context!!, getString(R.string.failed_internet_connection), Toasty.LENGTH_LONG).show()
-        }
-        else{
-            Toasty.warning(context!!, getString(R.string.failed_get_data), Toasty.LENGTH_LONG).show()
-        }
-        model.loadAccountDataFromCache()
-        updateView()
+
+        Toasty.warning(context!!, getString(R.string.failed_get_data), Toasty.LENGTH_LONG).show()
+//        model.loadAccountDataFromCache()
+//        updateView()
         Log.e("Update data", throwable?.message, throwable)
     }
 
@@ -177,18 +166,12 @@ class DataFragment : AccountViewModelFragment() {
                     it.link = it.link.replace(".com",".net")
                 }
             ccPromosAdapter.setData(ccPromoData)
-            saveCCPromoToCache(ccPromoData)
         }
     }
 
     private fun getCCPromoError(throwable: Throwable?){
         Log.e("Get promo", throwable?.message, throwable)
-        val cacheData = loadCCPromoFromCache()
-        if (cacheData != null) {
-            ccPromosAdapter.setData(cacheData)
-        }
-        else
-            ccPromo.visibility = View.GONE
+        ccPromo.visibility = View.GONE
     }
 
     fun updateDataSignalsRequest(){
@@ -283,20 +266,20 @@ class DataFragment : AccountViewModelFragment() {
         return binding.root
     }
 
-    fun loadCCPromoFromCache() : Collection<CCPromoData>?{
-        var cachePromo:List<CCPromoData>? = null
-        model.db.executeTransaction {
-            cachePromo = it.where(CCPromoData::class.java).findAll()
-        }
-        return cachePromo
-    }
-
-    fun saveCCPromoToCache(cachePromo: Collection<CCPromoData>){
-        model.db.beginTransaction()
-        cachePromo.forEach{
-            model.db.insert(it)
-        }
-        model.db.commitTransaction()
-    }
+//    fun loadCCPromoFromCache() : Collection<CCPromoData>?{
+//        var cachePromo:List<CCPromoData>? = null
+//        model.db.executeTransaction {
+//            cachePromo = it.where(CCPromoData::class.java).findAll()
+//        }
+//        return cachePromo
+//    }
+//
+//    fun saveCCPromoToCache(cachePromo: Collection<CCPromoData>){
+//        model.db.beginTransaction()
+//        cachePromo.forEach{
+//            model.db.insert(it)
+//        }
+//        model.db.commitTransaction()
+//    }
 
 }
