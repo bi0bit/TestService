@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="ccPromoData"
+            type="com.ilagoproject.myapplication.model.data.CCPromoData"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/imageFilterView"
+            android:layout_width="92dp"
+            android:layout_height="92dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="8dp"
+            app:srcUrl="@{ccPromoData.image}"
+            app:processImg="@{@drawable/drawable_progress}"
+            app:errorImg="@{@drawable/ic_error}"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mainText"
+            android:layout_width="match_parent"
+            android:layout_height="92dp"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/imageFilterView"
+            android:padding="8dp"
+            android:textSize="16sp"
+            android:text="@{ccPromoData.text}"
+            />
+
+    </RelativeLayout>
+</layout>

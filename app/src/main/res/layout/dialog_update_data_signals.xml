@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="24dp">
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/selectPairsLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="18dp"
+            android:textSize="18sp"
+            android:text="@string/select_pairs" />
+        <com.androidbuts.multispinnerfilter.MultiSpinnerSearch
+            android:id="@+id/selectPairs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/selectPairsLabel"
+            android:layout_marginBottom="18dp"/>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/fromLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="28dp"
+            android:layout_marginEnd="2dp"
+            android:textSize="18sp"
+            android:layout_below="@id/selectPairs"
+            android:text="@string/from" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/toLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/selectPairs"
+            android:layout_marginEnd="2dp"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@+id/selected_date_from"
+            android:text="@string/to"
+            android:textSize="18sp" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/selected_date_from"
+            android:textSize="18sp"
+            android:layout_toEndOf="@id/fromLabel"
+            android:layout_alignBaseline="@id/fromLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/selected_date_to"
+            android:textSize="18sp"
+            android:layout_toEndOf="@id/toLabel"
+            android:layout_alignBaseline="@id/toLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSelectRange"
+            android:layout_below="@id/toLabel"
+            android:layout_alignParentEnd="true"
+            android:text="@string/select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+</layout>

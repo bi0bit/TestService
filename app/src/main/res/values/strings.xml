@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="number">Number:</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign in</string>
+    <string name="remember_me">Remember me</string>
+    <string name="addressLabel">Address:</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="update">Update</string>
+    <string name="val_pair_label">Val. Pair:</string>
+    <string name="period_label">Period:</string>
+    <string name="price_label">Price:</string>
+    <string name="stop_loss">Stop Loss:</string>
+    <string name="take_profit">Take Profit:</string>
+    <string name="name">Name:</string>
+    <string name="address">Address:</string>
+    <string name="country">Country:</string>
+    <string name="city">City:</string>
+    <string name="balance">Balance:</string>
+    <string name="phone">Phone:</string>
+    <string name="from">From:</string>
+    <string name="to">To:</string>
+    <string name="select_pairs">Select pairs:</string>
+    <string name="select">Select</string>
+    <string name="select_dates_range">Select dates range</string>
+    <string name="save">Save</string>
+    <string name="no_internet_access">No Internet Access</string>
+    <string name="failed_get_data">Failed get data. Try later please!</string>
+    <string name="failed_internet_connection">Failed internet connection. Data load from cache!</string>
+    <string name="wrong_auth_data">login or password isn\'t right</string>
+</resources>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="dataSignal"
+            type="com.ilagoproject.myapplication.apiservice.data.DataSignal" />
+    </data>
+
+    <RelativeLayout
+        android:theme="@style/SecondTheme.MyApplication"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/drawable_card_background"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="21dp"
+        android:paddingBottom="21dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp">
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/pair"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="12dp"
+            android:text="@{dataSignal.pair}"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textSize="21sp"/>
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/time"
+            android:layout_alignBaseline="@+id/pair"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:dateUnix="@{dataSignal.actualTime}"
+            android:textSize="18sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pair"
+            android:layout_marginBottom="12dp"
+            android:text='@{"“"+dataSignal.comment+"”"}'
+            android:textColor="#73ffffff"
+            android:textStyle="italic" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/period"
+            android:layout_below="@+id/comment"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{dataSignal.period}"
+            android:textSize="18sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@+id/period"
+            android:layout_alignBaseline="@+id/period"
+            android:layout_marginEnd="8dp"
+            android:text="@string/period_label"
+            android:textSize="18sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/priceLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/comment"
+            android:layout_alignParentStart="true"
+            android:layout_alignBaseline="@id/period"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/price_label"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/priceLabel"
+            android:layout_alignBaseline="@id/priceLabel"
+            android:text="@{dataSignal.price}"
+            android:textSize="18sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/slLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/priceLabel"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/stop_loss" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/sl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/slLabel"
+            android:layout_alignBaseline="@id/slLabel"
+            android:text="@{dataSignal.sl}" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tpLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/slLabel"
+            android:layout_marginEnd="8dp"
+            android:text="@string/take_profit" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/tpLabel"
+            android:layout_alignBaseline="@id/tpLabel"
+            android:text="@{dataSignal.tp}" />
+
+    </RelativeLayout>
+</layout>
